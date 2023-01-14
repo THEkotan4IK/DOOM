@@ -23,9 +23,16 @@ public class Shooting : MonoBehaviour
     public GameObject camera;
     public GameObject hitEffect;
 
+    [Header("ANIMATIONS")]
+    private Animator animator;
+
     [Header("AUDIO")]
     public AudioSource shootSFX;
 
+    private void Start()
+    {
+        animator = GetComponent<Animator>();
+    }
     void Update()
     {
         if (Input.GetKey(KeyCode.Mouse0) && Time.time > nextFire && MagazineAmmoCount > 0)
@@ -36,12 +43,14 @@ public class Shooting : MonoBehaviour
     }
 
     void RayShoot()
-    {
+    {   
         if (!shootSFX.isPlaying)
         {
             shootSFX.Play();
         }
         MagazineAmmoCount--;
+
+        animator.SetTrigger("Shot");
 
         camera.transform.rotation = camera.transform.rotation * Quaternion.Euler(UnityEngine.Random.Range(-recoilX, recoilX), UnityEngine.Random.Range(-recoilY, recoilY), 0);
 

@@ -653,6 +653,7 @@ GameObject:
   - component: {fileID: 3810346467823095846}
   - component: {fileID: 196548923166581302}
   - component: {fileID: 196548923166581303}
+  - component: {fileID: 196548923166581304}
   m_Layer: 0
   m_Name: AKM
   m_TagString: Untagged
@@ -780,6 +781,25 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!95 &196548923166581304
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 196548923166581301}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 3bd9ec601f3b29a4ab47c2011de0b02e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &219193355739631621
 GameObject:
   m_ObjectHideFlags: 0

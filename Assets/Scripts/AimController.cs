@@ -7,10 +7,14 @@ public class AimController : MonoBehaviour
     private Animator animator;
     public Animator CameraAnimator;
 
+    public float dampingDelta = 0.2f;
+
+    private Vector3 initialPositionX;
 
     void Start()
     {
         animator = GetComponent<Animator>();
+        initialPositionX = transform.position;
     }
     void Update()
     {

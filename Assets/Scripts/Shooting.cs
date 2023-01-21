@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cinemachine;
 
 public class Shooting : MonoBehaviour
 {
@@ -23,6 +24,8 @@ public class Shooting : MonoBehaviour
     public GameObject camera;
     public GameObject hitEffect;
 
+    private CinemachineImpulseSource impulse;
+
     [Header("ANIMATIONS")]
     private Animator animator;
 
@@ -32,6 +35,7 @@ public class Shooting : MonoBehaviour
     private void Start()
     {
         animator = GetComponent<Animator>();
+        impulse = GetComponent<CinemachineImpulseSource>();
     }
     void Update()
     {
@@ -44,13 +48,13 @@ public class Shooting : MonoBehaviour
 
     void RayShoot()
     {
-        shootSFX.PlayOneShot(shootSFX.clip);
-
         MagazineAmmoCount--;
+
+        shootSFX.PlayOneShot(shootSFX.clip);
 
         animator.SetTrigger("Shot");
 
-        camera.transform.rotation = camera.transform.rotation * Quaternion.Euler(UnityEngine.Random.Range(-recoilX, recoilX), UnityEngine.Random.Range(-recoilY, recoilY), 0);
+        impulse.GenerateImpulse();
 
         RaycastHit hit;
 

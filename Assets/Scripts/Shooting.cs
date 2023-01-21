@@ -43,11 +43,9 @@ public class Shooting : MonoBehaviour
     }
 
     void RayShoot()
-    {   
-        if (!shootSFX.isPlaying)
-        {
-            shootSFX.Play();
-        }
+    {
+        shootSFX.PlayOneShot(shootSFX.clip);
+
         MagazineAmmoCount--;
 
         animator.SetTrigger("Shot");

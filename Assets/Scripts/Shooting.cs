@@ -8,7 +8,7 @@ public class Shooting : MonoBehaviour
     [Header("OPTIONS")]
     public float range;
     public float fireRate;
-    public float damage;
+    public int damage;
     private float nextFire;
 
     public float recoilX;
@@ -65,7 +65,7 @@ public class Shooting : MonoBehaviour
             if (hit.collider.CompareTag("Enemy"))
             {
                 Debug.Log("Нифига ты баклажан");
-                hit.collider.GetComponent<EnemyHealth>().ChangeHealth(-10);
+                hit.collider.GetComponent<EnemyHealth>().ChangeHealth(-damage);
             }
 
             GameObject impact = Instantiate(hitEffect, hit.point, Quaternion.LookRotation(hit.normal));

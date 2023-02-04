@@ -24,7 +24,7 @@ public class EnemyHealth : MonoBehaviour
             print($"{gameObject} получил {value} урона");
         }
 
-        if (health < 0)
+        if (health <= 0)
         {
             Die();
         }

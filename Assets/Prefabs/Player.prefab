@@ -80,7 +80,7 @@ MonoBehaviour:
   GroundedRadius: 0.5
   GroundLayers:
     serializedVersion: 2
-    m_Bits: 513
+    m_Bits: 1
   CinemachineCameraTarget: {fileID: 5369041790542381288}
   TopClamp: 89
   BottomClamp: -89
@@ -4746,7 +4746,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   range: 100
   fireRate: 0.85
-  damage: 0
+  damage: 10
   recoilX: 0.01
   recoilY: 0.01
   AmmoCount: 1000

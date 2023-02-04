@@ -61,6 +61,13 @@ public class Shooting : MonoBehaviour
         if (Physics.Raycast(camera.transform.position, camera.transform.forward, out hit, range))
         {
             Debug.Log(hit.collider.name);
+
+            if (hit.collider.CompareTag("Enemy"))
+            {
+                Debug.Log("Нифига ты баклажан");
+                hit.collider.GetComponent<EnemyHealth>().ChangeHealth(-10);
+            }
+
             GameObject impact = Instantiate(hitEffect, hit.point, Quaternion.LookRotation(hit.normal));
             Destroy(impact, deleteImpactTime);
         }

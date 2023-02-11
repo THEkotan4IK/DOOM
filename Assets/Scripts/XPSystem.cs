@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 using StarterAssets;
 
 public class XPSystem : MonoBehaviour
@@ -7,6 +8,7 @@ public class XPSystem : MonoBehaviour
 
     [Header("XP")]
     [SerializeField] GameObject xPanel;
+    [SerializeField] Text xpText;
     [SerializeField] KeyCode key;
 
     private GameObject player;
@@ -22,6 +24,7 @@ public class XPSystem : MonoBehaviour
         shoot = gun.GetComponent<Shooting>();
         inputs = player.GetComponent<StarterAssetsInputs>();
         fps = player.GetComponent<FirstPersonController>();
+        RenderXP();
     }
     private void OpenXPpanel()
     {
@@ -53,7 +56,13 @@ public class XPSystem : MonoBehaviour
 
         score += value;
         print($"Изменение баланса опыта на {value}. Текущий баланс: {score}");
+        RenderXP();
         return true;
+    }
+
+    private void RenderXP()
+    {
+        xpText.text = $"{score} XP";
     }
 
     void Update()

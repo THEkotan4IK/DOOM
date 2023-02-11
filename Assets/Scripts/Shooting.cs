@@ -20,6 +20,8 @@ public class Shooting : MonoBehaviour
 
     public float deleteImpactTime;
 
+    [HideInInspector]public bool canShoot;
+
     [Header("GAMEOBJECTS")]
     public GameObject camera;
     public GameObject hitEffect;
@@ -34,12 +36,13 @@ public class Shooting : MonoBehaviour
 
     private void Start()
     {
+        canShoot = true;
         animator = GetComponent<Animator>();
         impulse = GetComponent<CinemachineImpulseSource>();
     }
     void Update()
     {
-        if (Input.GetKey(KeyCode.Mouse0) && Time.time > nextFire && MagazineAmmoCount > 0)
+        if (Input.GetKey(KeyCode.Mouse0) && Time.time > nextFire && MagazineAmmoCount > 0 && canShoot)
         {
             RayShoot();
             nextFire = Time.time + 0.1f / fireRate;

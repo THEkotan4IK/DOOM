@@ -10,18 +10,23 @@ public class XPSystem : MonoBehaviour
     [SerializeField] KeyCode key;
 
     private GameObject player;
+    private GameObject gun;
+    private Shooting shoot;
     private FirstPersonController fps;
     private StarterAssetsInputs inputs;
 
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
+        gun = GameObject.FindGameObjectWithTag("Gun");
+        shoot = gun.GetComponent<Shooting>();
         inputs = player.GetComponent<StarterAssetsInputs>();
         fps = player.GetComponent<FirstPersonController>();
     }
     private void OpenXPpanel()
     {
         xPanel.SetActive(true);
+        shoot.canShoot = false;
         fps.RotationSpeed = 0;
         inputs.cursorInputForLook = false;
         inputs.cursorLocked = false;
@@ -31,6 +36,7 @@ public class XPSystem : MonoBehaviour
     private void CloseXPpanel()
     {
         xPanel.SetActive(false);
+        shoot.canShoot = true;
         fps.RotationSpeed = 2;
         inputs.cursorInputForLook = true;
         inputs.cursorLocked = true;

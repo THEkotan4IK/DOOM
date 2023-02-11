@@ -8,6 +8,7 @@ TagManager:
   - CinemachineTarget
   - XPSystem
   - Enemy
+  - Gun
   layers:
   - Default
   - TransparentFX

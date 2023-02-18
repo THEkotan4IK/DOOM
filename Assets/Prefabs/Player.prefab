@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 7535893691669386051}
   - component: {fileID: 4096849693057918415}
   - component: {fileID: 321075237522536895}
+  - component: {fileID: 8747456141800699169}
   m_Layer: 8
   m_Name: PlayerCapsule
   m_TagString: Player
@@ -219,6 +220,19 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &8747456141800699169
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 321075237522536883}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c39cb7d79eb99543996572d73ef13e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
 --- !u!1 &355739119278954886
 GameObject:
   m_ObjectHideFlags: 0
@@ -4753,6 +4767,7 @@ MonoBehaviour:
   MagazineAmmoCount: 1000
   MaxMagazineAmmoCount: 1000
   deleteImpactTime: 2
+  canShoot: 0
   camera: {fileID: 8349724400072865528}
   hitEffect: {fileID: 178032, guid: ea6cf4c5efb69b94db988e2fbfd72698, type: 3}
   shootSFX: {fileID: 8167953222313212350}

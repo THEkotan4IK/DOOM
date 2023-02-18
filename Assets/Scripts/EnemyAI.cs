@@ -3,18 +3,28 @@ using UnityEngine;
 public class EnemyAI : MonoBehaviour
 {
     private Animator animator;
-    private Collider collider;
+    private SphereCollider collider;
     public LayerMask playerLayer;
+    private GameObject player;
+    private float nextDamage;
+    public float damageRate;
 
     void Start()
     {
         animator = GetComponent<Animator>();
-        collider = GetComponent<Collider>();
+        collider = GetComponent<SphereCollider>();
+        player = GameObject.FindGameObjectWithTag("Player");
     }
     void Update()
     {
-        RaycastHit hit;
+        bool hit = Physics.CheckSphere(collider.bounds.center, collider.radius, playerLayer);
 
-        animator.SetBool("Attack", Physics.SphereCast(collider.bounds.center, 1, transform.forward, out hit, playerLayer));
+        animator.SetBool("Attack", hit);
+
+        if(Time.time > nextDamage && hit)
+        {
+            player.GetComponent<PlayerHealth>().ChangeHealth(-10);
+            nextDamage = Time.time + 0.1f / damageRate;
+        }
     }
 }

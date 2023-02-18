@@ -9,6 +9,7 @@ TagManager:
   - XPSystem
   - Enemy
   - Gun
+  - SkillSystem
   layers:
   - Default
   - TransparentFX
@@ -17,7 +18,7 @@ TagManager:
   - Water
   - UI
   - Hands
-  - 
+  - Player
   - 
   - 
   - 

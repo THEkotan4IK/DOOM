@@ -18,8 +18,12 @@ public class SkillSlot : MonoBehaviour
     [SerializeField] Text priceText;
     private XPSystem XPsystem;
 
+    [SerializeField] SkillType skillType;
+    private Skills skills;
+
     void Start()
     {
+        skills = GameObject.FindGameObjectWithTag("SkillSystem").GetComponent<Skills>();
         XPsystem = GameObject.FindGameObjectWithTag("XPSystem").GetComponent<XPSystem>();
         fillerImages = fillerFrame.GetComponentsInChildren<Image>();
         RenderSkill();
@@ -62,25 +66,24 @@ public class SkillSlot : MonoBehaviour
         {
             fillerImages[i + 1].enabled = true;
         }
+        ApplySkill();
     }
 
-    void Update()
+    private void ApplySkill()
     {
-
-    }
-
-    private void ApplyHealthSkill()
-    {
-
-    }
-
-    private void ApplyDamageSkill()
-    {
-        
-    }
-
-    private void ApplyDexteritySkill()
-    {
-
+        switch (skillType)
+        {
+            case SkillType.Health:
+                skills.ChangeHealthSkill(skillValue);
+                break;
+            case SkillType.Damage:
+                skills.ChangeDamageSkill(skillValue);
+                break;
+            case SkillType.Dexterity:
+                skills.ChangeDexteritySkill(skillValue);
+                break;
+            default:
+                break;
+        }
     }
 }

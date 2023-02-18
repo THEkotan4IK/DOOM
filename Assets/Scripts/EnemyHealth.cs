@@ -6,10 +6,12 @@ public class EnemyHealth : MonoBehaviour
     [SerializeField] int worthXP;
     private int health;
     private XPSystem xpsystem;
+    private Animator animator;
 
     void Start()
     {
         health = maxHealth;
+        animator = GetComponent<Animator>();
         xpsystem = GameObject.FindGameObjectWithTag("XPSystem").GetComponent<XPSystem>();
     }
     public void ChangeHealth(int value)
@@ -33,7 +35,8 @@ public class EnemyHealth : MonoBehaviour
     private void Die()
     {
         xpsystem.ChangeScore(worthXP);
-        Destroy(gameObject);
+        animator.SetTrigger("Dead");
+        Destroy(gameObject, 3);
     }
 
     void Update()

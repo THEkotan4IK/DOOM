@@ -26,6 +26,7 @@ public class SkillSlot : MonoBehaviour
         skills = GameObject.FindGameObjectWithTag("SkillSystem").GetComponent<Skills>();
         XPsystem = GameObject.FindGameObjectWithTag("XPSystem").GetComponent<XPSystem>();
         fillerImages = fillerFrame.GetComponentsInChildren<Image>();
+        LoadSkills();
         RenderSkill();
     }
 
@@ -81,6 +82,24 @@ public class SkillSlot : MonoBehaviour
                 break;
             case SkillType.Dexterity:
                 skills.ChangeDexteritySkill(skillValue);
+                break;
+            default:
+                break;
+        }
+    }
+
+    private void LoadSkills()
+    {
+        switch (skillType)
+        {
+            case SkillType.Health:
+                skillValue = skills.healthSkillValue;
+                break;
+            case SkillType.Damage:
+                skillValue = skills.damageSkillValue;
+                break;
+            case SkillType.Dexterity:
+                skillValue = skills.dexteritySkillValue;
                 break;
             default:
                 break;
